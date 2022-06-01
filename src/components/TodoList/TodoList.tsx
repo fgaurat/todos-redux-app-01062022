@@ -1,14 +1,12 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { Todo } from '../../core/Todo'
 import TodoRow from './TodoRow'
 
-interface TodoListProps{
-    todos:Todo[]
-}
 
+function TodoList() {
 
-function TodoList({todos}:TodoListProps) {
-
+    const todos:Todo[] = useSelector( (state:any) => state.todoList.todos)
   return (
     <>
         <table className="table">

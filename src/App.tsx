@@ -10,22 +10,9 @@ const dao = new TodoDAO()
 
 function App() {
 
-  const [data,setData] = useState<Todo[]>([])
-
-  useEffect(() => {
-
-    ( async () =>{
-      const data = await dao.findAll()
-      setData(data)
-  
-    })()
-  }, [])
-  
-
-
   return (
     <div className="container-fluid">
-        <TodoList todos={data}></TodoList>
+        <TodoList></TodoList>
     </div>
   );
 }
