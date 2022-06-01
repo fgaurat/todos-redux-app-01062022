@@ -1,12 +1,22 @@
 import React from 'react'
+import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
+import { AppDispatch } from '../../app/store'
 import { Todo } from '../../core/Todo'
+import { getTodosAsync } from '../../features/todos/todoSlice'
 import TodoRow from './TodoRow'
 
 
 function TodoList() {
 
     const todos:Todo[] = useSelector( (state:any) => state.todoList.todos)
+    const dispatch = useDispatch<AppDispatch>();
+
+    useEffect(() => {
+        dispatch(getTodosAsync())
+    }, [])
+    
   return (
     <>
         <table className="table">
