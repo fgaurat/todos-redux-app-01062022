@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { Todo } from './core/Todo';
 import { useEffect } from 'react';
 import { TodoDAO } from './core/TodoDAO';
+import TodoForm from './components/TodoForm/TodoForm';
 
 const dao = new TodoDAO()
 
@@ -12,7 +13,11 @@ function App() {
 
   return (
     <div className="container-fluid">
-        <TodoList></TodoList>
+      <div className="row">
+        <div className="col"><TodoList></TodoList></div>
+        <div className="col"><TodoForm></TodoForm></div>
+      </div>
+        
     </div>
   );
 }
